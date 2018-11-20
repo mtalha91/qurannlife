@@ -7,17 +7,23 @@
 
       <?php
       $count = 0;
+      // echo '<pre>';
+      // print_r($chapters['chapters']); 
+      // echo '</pre>';
       ?>
+     
 
-      @foreach ($chapters as $s)
+      @foreach ($chapters['chapters'] as $s)
         <?php        
         if($count == 0 || $count == 3):
           ?><div class="row"><?php
         endif;
         $count++;
         ?>
-          <div class="col-sm"><pre>
-          <?php print_r($s); ?>
+          <div class="col-sm">
+          <?php echo $s['chapter_number']; ?>
+          <pre>
+          <?php //print_r($s); ?>
           </pre></div>
         <?php        
         if($count == 3):
