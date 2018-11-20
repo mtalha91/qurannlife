@@ -20,6 +20,7 @@ class QuranView extends Controller
         $chapters = $quran->getallchapters();
         //dd($chapters);
         //hello
+        //
         return view('pages.home', ['chapters' => $chapters]);
     }
 	
