@@ -12,5 +12,5 @@
 */
 
 Route::get('/', 'QuranView');
-
-Route::get('{surah_id}/{ayat_id}', 'QuranView@ayat');
+Route::get('chapters/{surah_id}', 'QuranView@surah');
+Route::get('chapters/{surah_id}/ayat/{ayat_id}', 'QuranView@ayat');

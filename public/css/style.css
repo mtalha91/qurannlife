@@ -1,3 +1,18 @@
 .bg-primary {
     background-color: #2ca4ab !important;
 }
+body .text-primary,
+body a {
+    color: #2ca4ab !important;
+}
+body a:hover {
+    color: #bd5d38 !important;
+    text-decoration: none !important;
+}
+.bismillah{
+    text-align: center;
+}
+.arabic,
+.urdu{
+    text-align: right;
+}

@@ -15,18 +15,33 @@ class QuranView extends Controller
      */
     public function __invoke()
     {
-        //$surah = Quran::all();
-        $quran = new Quran();        
-        $chapters = $quran->getallchapters();
+        $chapters = Quran::getallchapters();
         //dd($chapters);
         return view('pages.home', ['chapters' => $chapters]);
     }
-	
-	public function ayat(Request $request)
-    {
-        // $flight = App\Flight::where('number', 'FR 900')->first();
-        // $flight = App\Flight::find(1);
+    
+    public function surah($surah_id)
+    {   
+        $urdu_lang = '54';
+        $english_lang = '20';
 
-        return view('ayat', ['ayat' => Quran::findOrFail($id)]);
+        $bismillah = Quran::getbismillah(1, $urdu_lang);
+        $surah_info = Quran::getSurahInfo($surah_id, $english_lang);
+        $surah_urdu = Quran::getSurah($surah_id, $urdu_lang);
+        $surah_english = Quran::getSurah($surah_id, $english_lang);
+        
+        return view('pages.surah', ['bismillah' => $bismillah['verses'][0], 'surah_info' => $surah_info, 'surah_urdu' => $surah_urdu, 'surah_english' => $surah_english]);
+    }
+
+	public function ayat($surah_id, $ayat_id)
+    {
+        $urdu_lang = '54';
+        $english_lang = '20';
+
+        $bismillah = Quran::getbismillah(1, $urdu_lang);
+        $surah_info = Quran::getSurahInfo($surah_id, $english_lang);
+        $ayat = Quran::getAyat($surah_id, $ayat_id, $urdu_lang);
+
+        return view('pages.ayat', ['bismillah' => $bismillah['verses'][0], 'surah_info' => $surah_info, 'ayat' => $ayat]);
     }
 }
