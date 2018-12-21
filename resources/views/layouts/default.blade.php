@@ -3,6 +3,7 @@
 
   <head>
     @include('includes.head')
+    @yield('styles')
   </head>
 
   <body id="page-top">
@@ -12,6 +13,7 @@
     <div class="container-fluid p-0">
         @yield('content')
     </div>
+
     @include('includes.footer')
 
   </body>
