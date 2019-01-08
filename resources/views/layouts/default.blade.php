@@ -4,6 +4,7 @@
   <head>
     @include('includes.head')
     @yield('styles')
+
   </head>
 
   <body id="page-top">
@@ -15,6 +16,6 @@
     </div>
 
     @include('includes.footer')
-
+    @yield('scripts')
   </body>
 </html>

@@ -39,8 +39,10 @@
             </div>
           <?php
           endfor;
+
         endif;
         ?>
+          {{ $paginator->render() }}
       </div>
     </section>
 

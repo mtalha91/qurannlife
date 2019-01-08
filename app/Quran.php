@@ -94,13 +94,13 @@ class Quran extends Model
         }
     }
 
-    public static function getSurah($id, $lang){
+    public static function getSurah($id, $lang,$page){
         
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
             CURLOPT_PORT => "3000",
-            CURLOPT_URL => self::$quranapi."/chapters/".$id."/verses?text_type=words&limit=50&language=ur&translations=".$lang,
+            CURLOPT_URL => self::$quranapi."/chapters/".$id."/verses?text_type=words&limit=50&page=".$page."&language=ur&translations=".$lang,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -109,6 +109,10 @@ class Quran extends Model
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_POSTFIELDS => "{}",
         ));
+
+
+
+
         
         $response = curl_exec($curl);
         $err = curl_error($curl);
