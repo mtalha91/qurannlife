@@ -16,3 +16,8 @@ body a:hover {
 .urdu{
     text-align: right;
 }
+h3.bismillah, 
+h2#arabic-ayt, 
+span.text-primary.surah-title{
+    font-family: 'Montserrat', sans-serif!important;
+}
