@@ -25,7 +25,7 @@
                 <div class="col-12">
                   <a href="{{url()->current()}}/ayat/<?php echo $v['id']; ?>">
                     <div class="row">
-                      <div class="col-2 key"><?php echo $v['verse_key']; ?></div>
+                      <div class="col-2 verse-key"><?php echo $v['verse_key']; ?></div>
                       <div class="col-10">
                           <div class="col-12 arabic"><?php echo $v['text_madani']; ?></div>
                           <div class="col-12 urdu"><?php echo $v_urdu; ?></div>

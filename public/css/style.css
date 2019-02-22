@@ -13,10 +13,18 @@
 body .text-primary,
 body a {
     color: #2ca4ab !important;
+    font-family: arabicone, sans-serif;
 }
 body a:hover {
     color: #bd5d38 !important;
     text-decoration: none !important;
+}
+.col.ayat{
+    font-size: 30px;
+}
+.col-2.verse-key{
+    max-width: 50px;
+    padding: 2px;
 }
 .navbar-nav a {
     color: #fff !important;
@@ -28,6 +36,7 @@ body a:hover {
 .urdu{
     text-align: right;
 }
+h1,
 h3.bismillah, 
 h2#arabic-ayt, 
 span.text-primary.surah-title{
