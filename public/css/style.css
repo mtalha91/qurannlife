@@ -25,6 +25,7 @@ body a:hover {
 .col-2.verse-key{
     max-width: 50px;
     padding: 2px;
+    border-right: 1px solid #ccc;
 }
 .navbar-nav a {
     color: #fff !important;
