@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Quran;
 use Illuminate\Pagination\LengthAwarePaginator as Paginator;
+
 use function is_numeric;
 
 class QuranView extends Controller
@@ -58,6 +59,29 @@ class QuranView extends Controller
         $surah_info = Quran::getSurahInfo($surah_id, $english_lang);
         $ayat = Quran::getAyat($surah_id, $ayat_id, $urdu_lang);
 
-        return view('pages.ayat', ['bismillah' => $bismillah['verses'][0], 'surah_info' => $surah_info, 'ayat' => $ayat]);
+        return view('pages.ayat', ['bismillah' => $bismillah['verses'][0], 'surah_info' => $surah_info, 'ayat' => $ayat, 'surah_id' => $surah_id, 'ayat_id' => $ayat_id]);
+    }
+
+    public function generatedimage()
+    {            
+        if(isset($_POST) && isset($_POST['data'])){
+
+            $data = $_POST['data'];
+            $image = base64_decode(explode(",", $data)[1]);
+            $image_path_url = base_path().'/public/quranimages/quran-';
+            $temp_name = $image_path_url . $_POST['surah_id'] ."-". $_POST['ayat_id'] . ".jpg";
+            
+            if(file_exists($temp_name)){
+                echo $temp_name;
+            }else{
+                $savefile = @file_put_contents($temp_name , $image);
+                if($savefile){
+                    echo $temp_name;
+                }else{
+                    echo "Image not saved";
+                } 
+            }               
+        }
+    die();
     }
 }
