@@ -1,3 +1,12 @@
+@charset "UTF-8"; 
+@font-face {
+    font-family: arabicone;
+    src: url(../fonts/arabic-one.ttf);
+}
+@font-face {
+    font-family: arabictwo;
+    src: url(../fonts/arabic-two.ttf);
+}
 .bg-primary {
     background-color: #2ca4ab !important;
 }
@@ -9,6 +18,9 @@ body a:hover {
     color: #bd5d38 !important;
     text-decoration: none !important;
 }
+.navbar-nav a {
+    color: #fff !important;
+}
 .bismillah{
     text-align: center;
 }
@@ -19,5 +31,83 @@ body a:hover {
 h3.bismillah, 
 h2#arabic-ayt, 
 span.text-primary.surah-title{
-    font-family: 'Montserrat', sans-serif!important;
+    font-family: arabicone, sans-serif;
+}
+
+/*Ayat page*/
+.ayat-page {
+    background-image: url(../img/bg-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px 10px;
+    color: #333;
+    width:100%;
+    position: relative;
+    margin:auto;
+    max-width: 900px;
+    min-height: 600px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.ayat-page h1,
+.ayat-page h2,
+.ayat-page h3,
+.ayat-page h4,
+.ayat-page h5,
+.ayat-page h6,
+.ayat-page p,
+.ayat-page span,
+.ayat-page div,
+span.text-primary.surah-title {
+    color: #fff !important;
+}
+span.text-primary.surah-title {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+}
+.ayat-page span.verse-key {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font-size: 30px;
+}
+.ayat-page h2.arabic,
+.ayat-page h3.urdu,
+.ayat-page h3.english {
+    text-align: center;
+    margin: 4% auto;
+    line-height: 1.2;
+}
+.ayat-page h3.urdu,
+.ayat-page h3.english,
+.ayat-page span.verse-key {
+    font-family: arabictwo, sans-serif;
+}
+.loader {
+    border: 16px solid #bd5d38;
+    border-radius: 50%;
+    border-top: 16px solid #2ca4ab;
+    width: 240px;
+    height: 240px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 35%;
+    margin: auto;
+    right: 28%;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
