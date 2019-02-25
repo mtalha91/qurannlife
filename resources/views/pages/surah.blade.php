@@ -23,7 +23,7 @@
             <div class="col ayat">
               <div class="resume-item d-flex flex-column flex-md-row row">
                 <div class="col-12">
-                  <a href="{{url()->current()}}/ayat/<?php echo $v['id']; ?>">
+                  <a href="{{url()->current()}}/ayat/<?php echo $v['id']; ?>/<?php echo str_replace(":", "-", $v['verse_key']); ?>">
                     <div class="row">
                       <div class="col-2 verse-key"><?php echo $v['verse_key']; ?></div>
                       <div class="col-11">

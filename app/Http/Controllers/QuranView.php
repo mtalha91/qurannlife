@@ -23,6 +23,11 @@ class QuranView extends Controller
         return view('pages.home', ['chapters' => $chapters]);
     }
     
+    public function about()
+    {
+        return view('pages.about');
+    }
+
     public function surah($surah_id,Request $request)
     {
         $page_query = $request->query('page');
@@ -50,7 +55,7 @@ class QuranView extends Controller
                 'surah_urdu' => $surah_urdu, 'surah_english' => $surah_english , 'paginator' => $paginator]);
     }
 
-	public function ayat($surah_id, $ayat_id)
+	public function ayat($surah_id, $ayat_id, $verse_key)
     {
         $urdu_lang = '54';
         $english_lang = '20';
@@ -58,18 +63,19 @@ class QuranView extends Controller
         $bismillah = Quran::getbismillah(1, $urdu_lang);
         $surah_info = Quran::getSurahInfo($surah_id, $english_lang);
         $ayat = Quran::getAyat($surah_id, $ayat_id, $urdu_lang);
+        $ayat = json_decode($ayat, true);
 
-        return view('pages.ayat', ['bismillah' => $bismillah['verses'][0], 'surah_info' => $surah_info, 'ayat' => $ayat, 'surah_id' => $surah_id, 'ayat_id' => $ayat_id]);
+        return view('pages.ayat', ['bismillah' => $bismillah['verses'][0], 'surah_info' => $surah_info, 'ayat' => $ayat, 'surah_id' => $surah_id, 'ayat_id' => $ayat_id, 'verse_key' => $verse_key]);
     }
 
     public function generatedimage()
-    {            
+    {
         if(isset($_POST) && isset($_POST['data'])){
 
             $data = $_POST['data'];
             $image = base64_decode(explode(",", $data)[1]);
             $image_path_url = base_path().'/public/quranimages/quran-';
-            $temp_name = $image_path_url . $_POST['surah_id'] ."-". $_POST['ayat_id'] . ".jpg";
+            $temp_name = $image_path_url . $_POST['verse_key'] . ".jpg";
             
             if(file_exists($temp_name)){
                 echo $temp_name;

@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'QuranView');
+Route::get('/about', 'QuranView@about');
 Route::get('chapters/{surah_id}', 'QuranView@surah');
-Route::get('chapters/{surah_id}/ayat/{ayat_id}', 'QuranView@ayat');
+Route::get('chapters/{surah_id}/ayat/{ayat_id}/{verse_key}', 'QuranView@ayat');
 Route::post('generatedimage','QuranView@generatedimage');
