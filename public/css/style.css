@@ -23,8 +23,8 @@ body a:hover {
     font-size: 30px;
 }
 .col-2.verse-key{
-    max-width: 50px;
-    padding: 2px;
+    max-width: 60px;
+    padding: 0;
     border-right: 1px solid #ccc;
 }
 .navbar-nav a {
