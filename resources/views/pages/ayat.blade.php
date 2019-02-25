@@ -54,7 +54,11 @@
         </div>
               
     </section>
-    <div class="loader"></div>  
+    <?php
+    if(!file_exists($image_path_url)):
+        ?><div class="loader"></div><?php
+    endif;
+    ?>    
 @stop
 <?php
 if(!file_exists($image_path_url)):
@@ -100,7 +104,6 @@ else:
         $ajax_url = url('/generatedimage');
         ?>
         $(function() {
-            $(".loader").hide();
             $(".ayat-page").hide();
         });
         </script>
