@@ -79,6 +79,11 @@ span.text-primary.surah-title {
     text-align: center;
     font-size: 26px;
 }
+.ayat-page .logo{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 .ayat-page span.verse-key {
     display: block;
     margin: auto;

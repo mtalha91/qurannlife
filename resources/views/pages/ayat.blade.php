@@ -43,6 +43,7 @@
                 endif;
                 ?>
                 <span class="text-primary surah-title"><?php echo $surah_info['chapter']['name_arabic'] ?> (<?php echo $surah_info['chapter']['name_simple'] ?>)</span>
+                <span class="logo"><img src="<?php echo url("/public")."/img/logo-quran.png"; ?>" alt="Logo" title="Logo"/></span>
             </div>
         </div>
         <div id="generatedimage" class="my-auto ayat-section">
