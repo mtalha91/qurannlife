@@ -83,13 +83,13 @@ span.text-primary.surah-title {
     position: absolute;
     bottom: 0;
     left: 0;
+    opacity: 0.6;
 }
 .ayat-page span.verse-key {
     display: block;
     margin: auto;
     text-align: center;
     font-size: 30px;
-    opacity: 0.8;
 }
 .ayat-page h2.arabic,
 .ayat-page h3.urdu,
