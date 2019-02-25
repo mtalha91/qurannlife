@@ -27,8 +27,8 @@
                     <div class="row">
                       <div class="col-2 verse-key"><?php echo $v['verse_key']; ?></div>
                       <div class="col-11">
-                          <div class="col-12 arabic"><?php echo $v['text_madani']; ?></div>
-                          <div class="col-12 urdu"><?php echo $v_urdu; ?></div>
+                          <div class="col-12 arabic" dir="rtl" lang="ar"><?php echo $v['text_madani']; ?></div>
+                          <div class="col-12 urdu" dir="rtl" lang="ur"><?php echo $v_urdu; ?></div>
                           <div class="col-12 english"><?php echo $v['translations'][0]['text']; ?></div>
                       </div>
                     </div> 
