@@ -3,13 +3,59 @@
 @endsection
 
 @section('content')
-    <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
+    <?php        
+    $surah_info = json_decode($surah_info, true);
+    //echo '<pre>';print_r($surah_info);echo '</pre>';
+    //verse_key
+    //http://localhost/qurannlife/chapters/8/ayat/1164/8-4
+    $prev_overall_verse = $ayat_id - 1;
+    $next_overall_verse = $ayat_id + 1;
+
+    $prev_verse = explode("-", $verse_key)[1] - 1;
+    $next_verse = explode("-", $verse_key)[1] + 1;
+
+    $prev_show = true;
+    $next_show = true;
+
+    // if it is the first verse of the Surah    
+    if($prev_verse < 1){
+        $prev_show = false;
+    }
+    // if it is the last verse of the Surah
+    if($next_verse > $surah_info['chapter']['verses_count']){
+        $next_show = false;
+    }
+
+    ?>
+    <section class="p-3 d-flex d-column">
+        <div class="col-12">
+            <h1 class="text-center"><a href="{{ url('/') }}/chapters/<?php echo $surah_id; ?>"><span class="text-primary"><?php echo $surah_info['chapter']['name_arabic'] ?> (<?php echo $surah_info['chapter']['name_simple'] ?>)</span></a></h1>
+        </div>
+    </section>
+    <section class="d-flex d-column">
+        <div class="col-12 ayat-pagination">
+            <div class="col-4 left">
+                <?php if($prev_show): ?>
+                <a href="{{ url('/') }}/chapters/<?php echo $surah_id; ?>/ayat/<?php echo $prev_overall_verse; ?>/<?php echo $surah_id; ?>-<?php echo $prev_verse; ?>">
+            Previous
+                </a>
+                <?php endif; ?>
+            </div>
+            <div class="col-4 right">
+                <?php if($next_show): ?>
+                <a href="{{ url('/') }}/chapters/<?php echo $surah_id; ?>/ayat/<?php echo $next_overall_verse; ?>/<?php echo $surah_id; ?>-<?php echo $next_verse; ?>">
+                    Next
+                </a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+    <section class="p-lg-5 p-3 d-flex d-column" id="about">
+        
         <div class="bg-image ayat-page" id="main-image">
             <div class="my-auto ayat-section" id="ayat-section">
                 <h3 class="bismillah"><?php echo $bismillah['text_madani']; ?></h3>
-                <?php        
-                $surah_info = json_decode($surah_info, true);
-                ?>        
+                        
                 <?php
                 $image_path_url = "";
                 if($ayat != null):
@@ -109,6 +155,6 @@ else:
         });
         </script>
     @stop
-    <?php    
+    <?php
 endif;
 ?>

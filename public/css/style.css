@@ -54,12 +54,11 @@ span.text-primary.surah-title{
     width:100%;
     position: relative;
     margin:auto;
-    max-width: 900px;
+    width: 900px;
     min-height: 600px;
     box-sizing: border-box;
     position: relative;
 }
-
 .ayat-page h1,
 .ayat-page h2,
 .ayat-page h3,
@@ -119,6 +118,16 @@ span.text-primary.surah-title {
 .page-item.active .page-link{
     background-color: #2ca4ab !important;
     border-color: #2ca4ab !important;
+}
+.ayat-pagination .left{
+    float: left;
+}
+.ayat-pagination .right{
+    float: right;
+    text-align: right;
+}
+#generatedimage{
+    margin: 0 auto;
 }
 
 /* Safari */
