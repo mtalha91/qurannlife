@@ -28,6 +28,16 @@ class QuranView extends Controller
         return view('pages.about');
     }
 
+    public function privacy()
+    {
+        return view('pages.privacy');
+    }
+
+    public function terms()
+    {
+        return view('pages.terms');
+    }
+
     public function surah($surah_id,Request $request)
     {
         $page_query = $request->query('page');
