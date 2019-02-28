@@ -9,7 +9,9 @@
       $surah_info = json_decode($surah_info, true);
       ?>
       <h1>SURAH <span class="text-primary"><?php echo $surah_info['chapter']['name_arabic'] ?> (<?php echo $surah_info['chapter']['name_simple'] ?>)</span></h1>
-      <?php
+      
+      {{ $paginator->render() }}
+      <?php      
       if($surah_urdu != null && $surah_english != null):
         $surah_urdu = json_decode($surah_urdu, true);
         $surah_english = json_decode($surah_english, true);
@@ -42,7 +44,7 @@
 
         endif;
         ?>
-          {{ $paginator->render() }}
+        {{ $paginator->render() }}
       </div>
     </section>
 

@@ -116,6 +116,10 @@ span.text-primary.surah-title {
     margin: auto;
     right: 28%;
 }
+.page-item.active .page-link{
+    background-color: #2ca4ab !important;
+    border-color: #2ca4ab !important;
+}
 
 /* Safari */
 @-webkit-keyframes spin {
