@@ -24,10 +24,6 @@
         <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{{ url('/terms-and-service') }}">Terms and Service</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="{{ url('/login/facebook') }}">Login Facebook</a>
-        </li>
-        
     </ul>
     </div>
 </nav>
