@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Facebook\Facebook;
+use Illuminate\Support\ServiceProvider;
 
 class UserController extends Controller
 {

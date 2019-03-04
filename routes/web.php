@@ -19,5 +19,5 @@ Route::get('chapters/{surah_id}', 'QuranView@surah');
 Route::get('chapters/{surah_id}/ayat/{ayat_id}/{verse_key}', 'QuranView@ayat');
 Route::post('generatedimage','QuranView@generatedimage');
 
-Route::get('/login/facebook', 'Auth\LoginController@redirectToFacebookProvider');
-Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderFacebookCallback');
+Route::get('/login/facebook', 'UserController@redirectToFacebookProvider');
+Route::get('login/facebook/callback', 'UserController@handleProviderFacebookCallback');
