@@ -39,5 +39,9 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
-
+    'facebook' => [
+        'client_id' => '1014092718778022',
+        'client_secret' => '5583a72ca1111fb225eb3b65904e0e5f',
+        'redirect' => 'https://localhost/qurannlife/callback',
+    ],
 ];
