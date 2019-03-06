@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Socialite;
 use App\Services\SocialFacebookAccountService;
+use App\Http\Controllers\FirebaseController;
 
 class SocialAuthFacebookController extends Controller
 {
@@ -23,15 +24,23 @@ class SocialAuthFacebookController extends Controller
      *
      * @return callback URL from facebook
      */
-    public function callback()
+    public function callback(FirebaseController $firebase)
     {
-        //dd('sfdsf');
-        
         $user = Socialite::driver('facebook')->user();
-        echo '<pre>';
-        print_r($user);
-        echo '</pre>';
-        //dd($user);
+
+        //get/save data into firebase
+        $userdata = $firebase->getuser($user);
+        // echo 'Start<pre>';
+        // print_r($userdata);
+        // die();
+
+        if(!empty($userdata)):
+            echo "user is logged in";
+            die();
+		else:
+            $userdata = $firebase->saveuser($user);
+            print_r($userdata);
+        endif;
         die();
         //return redirect()->to('/');
     }
