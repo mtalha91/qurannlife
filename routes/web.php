@@ -21,5 +21,6 @@ Route::post('generatedimage','QuranView@generatedimage');
 
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
+Route::get('/logout', 'SocialAuthFacebookController@logout');
 
 Route::get('/test','FirebaseController@index');

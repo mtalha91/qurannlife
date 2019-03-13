@@ -80,4 +80,20 @@ class SocialAuthFacebookController extends Controller
         //die();
         return redirect()->to('/');
     }
+
+    /**
+     * Create a logout method.
+     *
+     * @return redirect
+     */
+    public function logout(Request $request)
+    {
+        $request->session()->forget('token');
+        $request->session()->forget('avatar');
+        $request->session()->forget('name');
+        $request->session()->forget('email');
+        $request->session()->forget('authenticated');
+
+        return redirect()->to('/');
+    }
 }
