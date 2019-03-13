@@ -67,7 +67,12 @@ class FirebaseController extends Controller
 		$value = $reference->push($userdata);	
 		$nodekey = $value->getKey();
 
-		return $nodekey;
+		$addeduser = $database->getReference('users/'.$user->id)->getValue();
+		if(!empty($addeduser)):
+			return $addeduser;
+		else:
+			return '';	
+		endif;
 		
 	}
 

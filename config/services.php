@@ -40,8 +40,8 @@ return [
         ],
     ],
     'facebook' => [
-        'client_id' => '1014092718778022',
-        'client_secret' => '5583a72ca1111fb225eb3b65904e0e5f',
-        'redirect' => 'https://localhost/qurannlife/callback',
+        'client_id' => env('client_id', 300),
+        'client_secret' => env('client_secret', 300),
+        'redirect' => env('redirect', 300),
     ],
 ];
