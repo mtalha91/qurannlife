@@ -4,7 +4,11 @@
     <span class="d-none d-lg-block">
         <a class="nav-link js-scroll-trigger active" href="{{ url('/') }}">
             <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ url('/public/img') }}/logo.jpg" alt="">
-        </a>    
+            @if (Session::has('name'))
+            <span style="color:#fff;">Logged in as: {{ Session::get('name')}}</span>
+        @endif
+        </a>
+        
     </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +28,16 @@
         <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="{{ url('/terms-and-service') }}">Terms and Service</a>
         </li>
+        
+        @if (Session::has('token'))
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url('/logout') }}">Logout</a>
+        </li>
+        @else
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url('/redirect') }}">Login Facebook</a>
+        </li>
+        @endif
     </ul>
     </div>
 </nav>
