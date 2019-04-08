@@ -1,5 +1,10 @@
 @extends('layouts.default')
 @section('styles')
+<meta property="og:url" content="{{ url('/') }}">
+<meta property="og:title" content="<?php echo $surah_info['chapter']['name_arabic'] ?>">
+<meta property="og:description" content="<?php echo $surah_info['chapter']['name_arabic'] ?>">
+<meta property="og:image" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
+<meta property="fb:app_id" content="1014092718778022">
 @endsection
 
 @section('content')
@@ -40,6 +45,9 @@
             Previous
                 </a>
                 <?php endif; ?>
+            </div>
+            <div class="col-4 left text-center">
+                <a class="btn btn-primary" href="{{ url('/sharetofacebook') }}/<?php echo $ayat_id; ?>">Share to Facebook Page</a>
             </div>
             <div class="col-4 right">
                 <?php if($next_show): ?>

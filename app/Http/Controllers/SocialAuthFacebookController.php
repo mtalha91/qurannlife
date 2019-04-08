@@ -48,6 +48,7 @@ class SocialAuthFacebookController extends Controller
             if ($request->session()->has('token')) {
                 
             }else{
+                $request->session()->put('id', $userdata_['id']);
                 $request->session()->put('token', $userdata_['token']);
                 $request->session()->put('avatar', $userdata_['avatar']);
                 $request->session()->put('name', $userdata_['name']);
@@ -58,7 +59,7 @@ class SocialAuthFacebookController extends Controller
             // print_r($userdata_);
             // //print_r($request);
             // echo "user is logged in";
-            //die();
+            // die();
 		else:
             $userdata = $firebase->saveuser($user);
             
@@ -67,6 +68,7 @@ class SocialAuthFacebookController extends Controller
                 $userdata_ = $user;
                 break;
             endforeach;
+            $request->session()->put('id', $userdata_['id']);
             $request->session()->put('token', $userdata_['token']);
             $request->session()->put('avatar', $userdata_['avatar']);
             $request->session()->put('name', $userdata_['name']);
@@ -88,12 +90,28 @@ class SocialAuthFacebookController extends Controller
      */
     public function logout(Request $request)
     {
+        $request->session()->forget('id');
         $request->session()->forget('token');
         $request->session()->forget('avatar');
         $request->session()->forget('name');
         $request->session()->forget('email');
         $request->session()->forget('authenticated');
 
+        return redirect()->to('/');
+    }
+
+    /**
+     * Create a logout method.
+     *
+     * @return redirect
+     */
+    public function sharetofacebook(FirebaseController $firebase, Request $request)
+    {
+        //saving current verse publish status to facebook
+        $userdata = $firebase->saveuserversecheckpoints($request->session()->get('id'), $request->ayat_id);
+        echo '<pre>';
+        print_r($userdata);
+        die();
         return redirect()->to('/');
     }
 }
