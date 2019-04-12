@@ -1,15 +1,23 @@
 @extends('layouts.default')
 @section('styles')
-<meta property="og:url" content="{{ url('/') }}">
+<?php
+$surah_info = json_decode($surah_info, true);
+//echo '<pre>';
+//print_r($surah_info);
+//echo '</pre>';
+?>
+<meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:title" content="<?php echo $surah_info['chapter']['name_arabic'] ?>">
 <meta property="og:description" content="<?php echo $surah_info['chapter']['name_arabic'] ?>">
 <meta property="og:image" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2"></script>
 <meta property="fb:app_id" content="1014092718778022">
 @endsection
 
 @section('content')
     <?php        
-    $surah_info = json_decode($surah_info, true);
+    //$surah_info = json_decode($surah_info, true);
     //echo '<pre>';print_r($surah_info);echo '</pre>';
     //verse_key
     //http://localhost/qurannlife/chapters/8/ayat/1164/8-4
@@ -38,6 +46,7 @@
         </div>
     </section>
     <section class="d-flex d-column">
+
         <div class="col-12 ayat-pagination">
             <div class="col-4 left">
                 <?php if($prev_show): ?>
@@ -47,6 +56,11 @@
                 <?php endif; ?>
             </div>
             <div class="col-4 left text-center">
+                <div class="fb-share-button" data-href="{{ url()->current() }}" data-layout="button_count" data-size="small">
+                    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+                        Share
+                    </a>
+                </div>
                 <a class="btn btn-primary" href="{{ url('/sharetofacebook') }}/<?php echo $ayat_id; ?>">Share to Facebook Page</a>
             </div>
             <div class="col-4 right">
