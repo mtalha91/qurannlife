@@ -76,4 +76,27 @@ class FirebaseController extends Controller
 		
 	}
 
+	/* save verse checkpoints */
+	public function saveuserversecheckpoints($user_id, $verse_key){
+
+		$serviceAccount = ServiceAccount::fromJsonFile(base_path().'/app/Http/Controllers/qurannlife-5698f-firebase-adminsdk-5zf8h-50190a8f49.json');
+		$firebase = (new Factory)->withServiceAccount($serviceAccount)->withDatabaseUri('https://qurannlife-5698f.firebaseio.com')->create();
+
+		$database = $firebase->getDatabase();		
+		$reference = $database->getReference('users/'.$user_id.'/verses/'.$verse_key)->getValue();
+		if(!empty($reference)):
+			return $reference;
+		else:
+			$reference = $database->getReference('users/'.$user_id.'/verses/'.$verse_key);
+			$versedata = [
+				'verse_key' => $verse_key,
+			];
+	
+			$value = $reference->push($versedata);
+			$nodekey = $value->getKey();
+			return $nodekey;
+		endif;
+		
+	}
+
 }
