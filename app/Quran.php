@@ -110,10 +110,6 @@ class Quran extends Model
             CURLOPT_POSTFIELDS => "{}",
         ));
 
-
-
-
-        
         $response = curl_exec($curl);
         $err = curl_error($curl);
         
