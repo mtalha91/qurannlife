@@ -6,9 +6,6 @@ $surah_info = json_decode($surah_info, true);
 //print_r($surah_info);
 //echo '</pre>';
 ?>
-
-<meta property="og:title" content="<?php echo $surah_info['chapter']['name_arabic'] ?>">
-<meta property="og:description" content="<?php echo $surah_info['chapter']['name_arabic'] ?>">
 <meta property="og:type" content="image/jpeg" />
 <meta property="og:image" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
 <meta property="og:image:url" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
@@ -55,7 +52,6 @@ $surah_info = json_decode($surah_info, true);
                 <?php endif; ?>
             </div>
             <div class="col-4 left text-center">
-                <p>Share this</p>
                 <div class="fb-share-button" data-href="{{ url()->current() }}" data-layout="button_count" data-size="small">
                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
                         Share
