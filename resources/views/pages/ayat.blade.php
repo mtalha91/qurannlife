@@ -6,7 +6,6 @@ $surah_info = json_decode($surah_info, true);
 //print_r($surah_info);
 //echo '</pre>';
 ?>
-<meta property="og:type" content="image/jpeg" />
 <meta property="og:image" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
 <meta property="og:image:url" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
 <meta property="og:image:secure_url" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
