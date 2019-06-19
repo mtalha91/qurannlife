@@ -6,10 +6,13 @@ $surah_info = json_decode($surah_info, true);
 //print_r($surah_info);
 //echo '</pre>';
 ?>
-<meta property="og:url" content="{{ url()->current() }}">
+
 <meta property="og:title" content="<?php echo $surah_info['chapter']['name_arabic'] ?>">
 <meta property="og:description" content="<?php echo $surah_info['chapter']['name_arabic'] ?>">
+<meta property="og:type" content="image/jpeg" />
 <meta property="og:image" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
+<meta property="og:image:url" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
+<meta property="og:image:secure_url" content="<?php echo url("/public/quranimages")."/quran-" . $verse_key . ".jpg"; ?>">
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2"></script>
 <meta property="fb:app_id" content="1014092718778022">
@@ -23,13 +26,10 @@ $surah_info = json_decode($surah_info, true);
     //http://localhost/qurannlife/chapters/8/ayat/1164/8-4
     $prev_overall_verse = $ayat_id - 1;
     $next_overall_verse = $ayat_id + 1;
-
     $prev_verse = explode("-", $verse_key)[1] - 1;
     $next_verse = explode("-", $verse_key)[1] + 1;
-
     $prev_show = true;
     $next_show = true;
-
     // if it is the first verse of the Surah    
     if($prev_verse < 1){
         $prev_show = false;
@@ -38,7 +38,6 @@ $surah_info = json_decode($surah_info, true);
     if($next_verse > $surah_info['chapter']['verses_count']){
         $next_show = false;
     }
-
     ?>
     <section class="p-3 d-flex d-column">
         <div class="col-12">
@@ -56,6 +55,10 @@ $surah_info = json_decode($surah_info, true);
                 <?php endif; ?>
             </div>
             <div class="col-4 left text-center">
+<<<<<<< HEAD
+=======
+                <p>Share this</p>
+>>>>>>> nabeel
                 <div class="fb-share-button" data-href="{{ url()->current() }}" data-layout="button_count" data-size="small">
                     <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
                         Share
@@ -81,13 +84,11 @@ $surah_info = json_decode($surah_info, true);
                 <?php
                 $image_path_url = "";
                 if($ayat != null):
-
                     //$ayat = json_decode($ayat, true);
                     $image_path_url = base_path().'/public/quranimages/quran-' . $verse_key . ".jpg";
                     //dd($image_path_url);
                     // if Aayt/verse image exist then simply display the image.
                     if(!file_exists($image_path_url)):
-
                         $english = "";
                         $urdu = "";
                         $arabic = $ayat['verse']['text_indopak'];
@@ -160,7 +161,6 @@ if(!file_exists($image_path_url)):
                     
                 });
             });
-
         });
         </script>
     @stop
