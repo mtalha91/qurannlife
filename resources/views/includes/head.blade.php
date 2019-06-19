@@ -1,7 +1,9 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<meta name="description" content="Quran & Life"/>
 <meta name="author" content="Talha"/>
 <meta name="_token" content="{{csrf_token()}}"/>
+<title>Quran & Life</title>
 
 <!-- Bootstrap core CSS -->
 <link href="{{ url('/public/vendor') }}/bootstrap/css/bootstrap.min.css" integrity="" rel="stylesheet">
